@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.jerryhong.ithelpsideproject.ui.home.HomeScreen
 import com.jerryhong.ithelpsideproject.ui.theme.ITHelpSideProjectTheme
 
 class MainActivity : ComponentActivity() {

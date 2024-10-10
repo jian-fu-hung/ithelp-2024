@@ -129,6 +129,7 @@ fun DetailScreen(productId: String, navController: NavController? = null, modifi
                     },
                 )
                 ExposedDropdownMenu(
+                    modifier = Modifier.fillMaxWidth(),
                     expanded = expanded,
                     onDismissRequest = {
                         expanded = false

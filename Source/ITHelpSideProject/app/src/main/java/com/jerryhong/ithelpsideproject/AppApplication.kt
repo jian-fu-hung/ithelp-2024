@@ -1,6 +1,7 @@
 package com.jerryhong.ithelpsideproject
 
 import android.app.Application
+import com.jerryhong.ithelpsideproject.core.AppDataManagerMock
 import com.jerryhong.ithelpsideproject.data.SubscriptionViewData
 
 class AppApplication : Application() {
@@ -13,7 +14,8 @@ class AppApplication : Application() {
         SubscriptionViewData(id = "4",name = "Discord", price = "10", cycle = "月訂閱")
     )
 
-    override fun onCreate() {
-        super.onCreate()
-    }
+    private val appDataManager = AppDataManagerMock()
+
+
+    fun getAppDataManager() = appDataManager
 }
