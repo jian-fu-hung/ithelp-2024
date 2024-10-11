@@ -80,7 +80,7 @@ fun HomeScreen(
         },
         floatingActionButton = {
             FloatingActionButton(onClick = {
-                navController?.navigate("detail/{id}")
+                navController?.navigate("detail")
             }) {
                 Icon(Icons.Default.Add, contentDescription = "")
             }

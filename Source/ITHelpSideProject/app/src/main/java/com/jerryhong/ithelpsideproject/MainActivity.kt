@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.jerryhong.ithelpsideproject.ui.detail.DetailScreen
 import com.jerryhong.ithelpsideproject.ui.home.HomeScreen
 import com.jerryhong.ithelpsideproject.ui.theme.ITHelpSideProjectTheme
 
@@ -42,6 +43,11 @@ fun MainScreen(modifier: Modifier = Modifier) {
             HomeScreen(navController = navController, modifier = modifier)
         }
         composable(
+            route = "detail",
+        ) {
+            DetailScreen(productId = "", navController = navController, modifier = modifier)
+        }
+        composable(
             route = "detail/{id}",
             arguments = listOf(
                 navArgument("id") {
@@ -51,6 +57,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
         ) {
             DetailScreen(productId = it.arguments?.getString("id") ?: "", navController = navController, modifier = modifier)
         }
+
     }
 }
 

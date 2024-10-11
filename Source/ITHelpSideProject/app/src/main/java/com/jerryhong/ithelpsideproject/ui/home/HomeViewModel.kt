@@ -1,5 +1,6 @@
 package com.jerryhong.ithelpsideproject.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
@@ -35,9 +36,7 @@ class HomeViewModel(private val appDataManager: AppDataManager) : BaseViewModel(
                 mState.value = HomeState.Error(throwable.message ?: "")
             }
         ) {
-            mState.value = HomeState.Loading
-            delay(10 * 1000)
-            mState.value = HomeState.Error("取得資料失敗")
+            getData()
         }
     }
 
@@ -50,8 +49,9 @@ class HomeViewModel(private val appDataManager: AppDataManager) : BaseViewModel(
     }
 
     private suspend fun getData() {
+        Log.d("TAG", "getData: ")
         mState.value = HomeState.Loading
-        delay(10 * 1000)
+        delay(1 * 1000)
         val list = withContext(Dispatchers.IO) { appDataManager.getData() }
         mState.value = HomeState.Finish(list)
     }
