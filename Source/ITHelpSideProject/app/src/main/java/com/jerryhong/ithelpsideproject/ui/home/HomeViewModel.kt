@@ -30,16 +30,6 @@ class HomeViewModel(private val appDataManager: AppDataManager) : BaseViewModel(
 
     private var mState = MutableStateFlow<HomeState>(HomeState.Empty)
 
-    init {
-        MainScope().launch(
-            CoroutineExceptionHandler { coroutineContext, throwable ->
-                mState.value = HomeState.Error(throwable.message ?: "")
-            }
-        ) {
-            getData()
-        }
-    }
-
     fun reload() {
         MainScope().launch(CoroutineExceptionHandler { coroutineContext, throwable ->
             mState.value = HomeState.Error(throwable.message ?: "")
